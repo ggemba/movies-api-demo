@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   res.send('index');
 });
 
-/* GET Movies. */
+/* GET Movies.. */
 router.get('/movies/count', function(req, res, next) {
   // res.send('deu certo, rota movies/count');
   getMovies(req, res);
