@@ -3,13 +3,28 @@ const axios = require('axios');
 const API_URL = 'https://jsonmock.hackerrank.com/api/movies/search/?Title=';
 
 /**
- * desc.
+ * Gateway to original API.
  * @param {Object} req object that contains API request payload.
  * @param {Object} res object that contains API response object.
  * @param {Object} title object that contains API response object.
  * @return {int} etc.
  */
 async function getMovies(req, res) {
+  axios.get(API_URL + req.query.title)
+      .then((response) => {
+        res.send(response.data);
+      });
+}
+exports.getMovies = getMovies;
+
+/**
+ * desc.
+ * @param {Object} req object that contains API request payload.
+ * @param {Object} res object that contains API response object.
+ * @param {Object} title object that contains API response object.
+ * @return {int} etc.
+ */
+async function getMoviesCount(req, res) {
   axios.get(API_URL + req.query.title)
       .then((response) => {
         const numberOfPages = response.data.total_pages;
@@ -24,7 +39,7 @@ async function getMovies(req, res) {
             }));
       });
 }
-exports.getMovies = getMovies;
+exports.getMoviesCount = getMoviesCount;
 
 /**
  * desc.

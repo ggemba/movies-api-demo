@@ -1,4 +1,5 @@
-const {getMovies} = require('../services/movieService');
+// eslint-disable-next-line max-len
+const {getMoviesCount: getMoviesCount, getMovies: getMovies} = require('../services/movieService');
 
 /* eslint-disable max-len */
 
@@ -12,10 +13,15 @@ router.get('/', function(req, res, next) {
   res.send('index');
 });
 
-/* GET Movies.. */
+/* GET Movies. */
+router.get('/movies', function(req, res, next) {
+  getMovies(req, res);
+});
+
+/* GET MoviesCountByYear. */
 router.get('/movies/count', function(req, res, next) {
   // res.send('deu certo, rota movies/count');
-  getMovies(req, res);
+  getMoviesCount(req, res);
 });
 
 module.exports = router;
