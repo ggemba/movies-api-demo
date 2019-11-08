@@ -10,7 +10,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send('index');
+  res.send('index, acesse a rota: /movies/count?title=');
 });
 
 /* GET Movies. */
